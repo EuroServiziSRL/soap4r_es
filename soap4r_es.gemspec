@@ -2,7 +2,7 @@ $:.unshift File.expand_path("../lib", __FILE__)
 require 'soap/version'
 
 Gem::Specification.new do |s|
-  s.name = 'soap4r-ng'
+  s.name = 'soap4r_es'
   s.version = SOAP::VERSION::STRING
 
   s.authors = "Laurence A. Lee, Hiroshi NAKAMURA"
