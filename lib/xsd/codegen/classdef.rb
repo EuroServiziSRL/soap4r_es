@@ -73,11 +73,6 @@ class ClassDef < ModuleDef
       spacer = true
       buf << dump_innermodule
     end
-    unless @code.empty?
-      buf << dump_emptyline if spacer
-      spacer = true
-      buf << dump_code
-    end
     unless @included_files.empty?
       buf << dump_emptyline if spacer
       spacer = true
@@ -88,6 +83,11 @@ class ClassDef < ModuleDef
       spacer = true
       buf << dump_attributes
     end
+    unless @code.empty?
+      buf << dump_emptyline if spacer
+      spacer = true
+      buf << dump_code
+    end    
     unless @methoddef.empty?
       buf << dump_emptyline if spacer
       spacer = true

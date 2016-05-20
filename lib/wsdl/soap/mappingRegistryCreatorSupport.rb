@@ -12,6 +12,7 @@ require 'wsdl/soap/classDefCreatorSupport'
 
 module WSDL
 module SOAP
+require 'byebug'
 
 
 # requires @defined_const = {}, @dump_with_inner, @modulepath
@@ -52,6 +53,7 @@ module MappingRegistryCreatorSupport
     end
   end
 
+  #mappa il complex type
   def dump_complex_typemap(mpath, qname, typedef, as_element, opt)
     var = {}
     define_dump_class(var, mpath, qname, typedef, as_element, opt)
@@ -73,6 +75,7 @@ module MappingRegistryCreatorSupport
     dump_entry(@varname, var)
   end
 
+  #mappa il simple type
   def dump_simple_typemap(mpath, qname, typedef, as_element, opt)
     var = {}
     define_dump_class(var, mpath, qname, typedef, as_element, opt)
@@ -273,10 +276,10 @@ module MappingRegistryCreatorSupport
 
   def dump_simpletypedef_restriction(mpath, qname, typedef, as_element, opt)
     restriction = typedef.restriction
-    unless restriction.enumeration?
-      # not supported.  minlength?
-      return nil
-    end
+    # unless restriction.enumeration?
+    #   # not supported.  minlength?
+    #   return nil
+    # end
     var = {}
     define_dump_class(var, mpath, qname, typedef, as_element, opt)
     schema_ns = (var[:schema_name] || var[:schema_type]).namespace

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name = 'soap4r_es'
   s.version = SOAP::VERSION::STRING
 
-  s.authors = "Laurence A. Lee, Hiroshi NAKAMURA"
+  s.authors = "Laurence A. Lee, Hiroshi NAKAMURA, Fabiano Pavan"
   s.email = "rubyjedi@gmail.com, nahi@ruby-lang.org"
   s.homepage = "http://rubyjedi.github.io/soap4r/"
   s.license = "Ruby"
@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.files = `git ls-files lib bin`.split("\n")
-  s.executables = [ "wsdl2ruby_rails.rb", "xsd2ruby.rb" ]
+  s.executables = [ "wsdl2ruby_rails.rb", "xsd2ruby.rb", "wsdl2ruby.rb" ]
 end

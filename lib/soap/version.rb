@@ -1,9 +1,9 @@
 # encoding: UTF-8
 module SOAP
   module VERSION #:nodoc:
-    MAJOR = 2
+    MAJOR = 0
     MINOR = 0
-    TINY  = 3
+    TINY  = 1
     STRING = [MAJOR, MINOR, TINY].join('.')
     
     FORK  = "SOAP4R-NG"

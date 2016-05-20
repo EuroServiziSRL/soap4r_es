@@ -11,15 +11,12 @@ require 'wsdl/data'
 require 'wsdl/soap/classDefCreatorSupport'
 require 'xsd/codegen'
 require 'set'
+require 'byebug'
 
 #uso il metodo di rails per convertire il nome della classe da camel case a snake case
 class String
   def underscore
-    self.gsub(/::/, '/').
-    gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-    gsub(/([a-z\d])([A-Z])/,'\1_\2').
-    tr("-", "_").
-    downcase
+    self.gsub(/::/, '/').gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').gsub(/([a-z\d])([A-Z])/,'\1_\2').tr("-", "_").downcase
   end
 end
 
@@ -167,10 +164,11 @@ private
 
   def create_simpletypedef_restriction(mpath, qname, typedef, qualified)
     restriction = typedef.restriction
-    unless restriction.enumeration?
-      # not supported.  minlength?
-      return nil
-    end
+    #MODIFICATO
+    # unless restriction.enumeration?
+    #   # not supported.  minlength?
+    #   return nil
+    # end
     classname = mapped_class_basename(qname, mpath)
     c = ClassDef.new(classname, '::String')
     c.comment = "#{qname}"
@@ -265,7 +263,6 @@ private
     # c.def_method('initialize', '*arg') do
     #   "super\n" + init_lines.join("\n")
     # end
-    
     #SCRIVO UN FILE PER OGNI CLASSE
     write_file(c.name+".rb", 'models_pagopa') do |f|
       f.puts "# encoding: UTF-8"
@@ -337,6 +334,10 @@ private
     unless typedef.attributes.empty?
       define_attribute(c, typedef.attributes)
       init_lines << "@__xmlattr = {}"
+    end
+    #DA AGGIUNGERE VALIDAZIONI RESTRICTION
+    unless typedef.elements.empty?
+      define_validations(c, typedef.elements)
     end
 
     #TOLTO INITIALIZE PER AVERE CONVENZIONE RAILS DI COSTRUTTORE CON HASH
@@ -448,6 +449,26 @@ private
       c.comment << "\n  #{methodname} - #{attribute_basetype(attribute) || '(any)'}"
     end
   end
+
+  #AGGIUNTO 
+  #aggiunge la validazione rails sulla lunghezza del campo se compare una restrictions sull'elemento
+  def define_validations(c,elements)
+    elements.each do |element|
+      if element.respond_to?(:type)
+        element_type = @simpletypes[element.type]
+        unless element_type.nil?
+          minlength = element_type.restriction.minlength
+          maxlength = element_type.restriction.maxlength
+          if minlength != nil && maxlength != nil
+            #ricavo ilnome dell'elemento
+            element_name = name_element(element).name
+            c.def_code("\n  validates_length_of :#{element_name}, :in => #{minlength}..#{maxlength}")
+          end
+        end
+      end
+    end
+  end
+
 
   def create_arraydef(mpath, qname, typedef)
     classname = mapped_class_basename(qname, mpath)

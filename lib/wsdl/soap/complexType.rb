@@ -9,7 +9,7 @@
 
 require 'wsdl/xmlSchema/complexType'
 require 'soap/mapping'
-
+require 'byebug'
 
 module WSDL
 module XMLSchema
@@ -50,7 +50,7 @@ class ComplexType < Info
       if ele = find_element(name)
         ele.type
       elsif ele = find_element_by_name(name.name)
-	ele.type
+	      ele.type
       end
     when :TYPE_ARRAY
       @contenttype ||= content_arytype
@@ -75,13 +75,13 @@ class ComplexType < Info
     when :TYPE_STRUCT, :TYPE_MAP
       unless ele = find_element(name)
        	if name.namespace.nil?
-  	  ele = find_element_by_name(name.name)
+  	    ele = find_element_by_name(name.name)
    	end
       end
     when :TYPE_ARRAY
       e = elements
       if e.size == 1
-	ele = e[0]
+	      ele = e[0]
       else
 	raise RuntimeError.new("Assert: must not reach.")
       end

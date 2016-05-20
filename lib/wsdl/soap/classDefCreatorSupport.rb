@@ -106,7 +106,8 @@ __EOD__
       # nil means anyType.
       nil
     elsif simpletype = @simpletypes[element.type]
-      if simpletype.restriction and simpletype.restriction.enumeration?
+      #MODIFICATO PER RESTRICTION NON GESTITE
+      if simpletype.restriction #and simpletype.restriction.enumeration?
         mapped_class_name(element.type, modulepath)
       else
         nil
