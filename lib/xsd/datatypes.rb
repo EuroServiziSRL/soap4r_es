@@ -598,6 +598,8 @@ module XSDDateTimeImpl
   end
 end
 
+require 'byebug'
+
 class XSDDateTime < XSDAnySimpleType
   include XSDDateTimeImpl
   Type = QName.new(Namespace, DateTimeLiteral)
@@ -609,6 +611,7 @@ class XSDDateTime < XSDAnySimpleType
 private
 
   def screen_data_str(t)
+    debugger
     /^([+\-]?\d{4,})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d(?:\.(\d*))?)(Z|(?:[+\-]\d\d:\d\d)?)?$/ =~ t.to_s.strip
     unless Regexp.last_match
       raise ValueSpaceError.new("#{ type }: cannot accept '#{ t }'.")
@@ -657,7 +660,8 @@ private
         s << sprintf("%.16f",(@data.sec_fraction * DayInSec).to_f).sub(/^0/, '').sub(/0*$/, '')
       end
     end
-    add_tz(s)
+    #add_tz(s) #COMMENTATO
+    s #MODIFICATO, RIGA CHE NON C'ERA
   end
 end
 
