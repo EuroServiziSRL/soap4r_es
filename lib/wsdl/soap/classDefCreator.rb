@@ -11,7 +11,6 @@ require 'wsdl/data'
 require 'wsdl/soap/classDefCreatorSupport'
 require 'xsd/codegen'
 require 'set'
-require 'byebug'
 
 #uso il metodo di rails per convertire il nome della classe da camel case a snake case
 class String
@@ -457,12 +456,13 @@ private
       if element.respond_to?(:type)
         element_type = @simpletypes[element.type]
         unless element_type.nil?
+          minoccurs = (element.minoccurs == 0)
           minlength = element_type.restriction.minlength
           maxlength = element_type.restriction.maxlength
           if minlength != nil && maxlength != nil
             #ricavo ilnome dell'elemento
             element_name = name_element(element).name
-            c.def_code("\n  validates_length_of :#{element_name}, :in => #{minlength}..#{maxlength}")
+            c.def_code("\n  validates_length_of :#{element_name}, :in => #{minlength}..#{maxlength}"+(minoccurs ? ", :allow_nil => true" : ""))
           end
         end
       end

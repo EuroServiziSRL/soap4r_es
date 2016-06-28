@@ -22,6 +22,9 @@ else
   gem 'curb'
 end
 
+gem 'debugger' if RUBY_VERSION.to_f < 2.0
+gem 'byebug' if RUBY_VERSION.to_f >= 2.0
+
 ## # Testing Support ###
 group :test do
   if RUBY_VERSION.to_f <= 1.8
@@ -39,7 +42,7 @@ group :test do
   # gem 'pry'                        ## see also: pry-debugger for Ruby 1.9 and lower; and pry-byebug for 2.0 and higher (requires byebug gem also)
   # gem 'ruby-termios'               # Unroller requires this . . .
   # gem 'unroller', :git=>'https://github.com/jayjlawrence/unroller.git', :branch=>'master'
-
+  
   gem 'byebug' if RUBY_VERSION.to_f >= 2.0
   gem 'soap4r_es', :path=>'.'  # Make our development copy (this directory) available as a Gem via Bundler. Useful for running tests.
 end

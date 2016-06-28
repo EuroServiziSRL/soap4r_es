@@ -598,8 +598,6 @@ module XSDDateTimeImpl
   end
 end
 
-require 'byebug'
-
 class XSDDateTime < XSDAnySimpleType
   include XSDDateTimeImpl
   Type = QName.new(Namespace, DateTimeLiteral)
@@ -743,7 +741,8 @@ private
   def _to_s
     year = (@data.year > 0) ? @data.year : @data.year - 1
     s = format('%.4d-%02d-%02d', year, @data.mon, @data.mday)
-    add_tz(s)
+    #add_tz(s) MODIFICATO, TOLTA RIGA
+    s #AGGIUNTO RITORNO DELLA DATA
   end
 end
 
