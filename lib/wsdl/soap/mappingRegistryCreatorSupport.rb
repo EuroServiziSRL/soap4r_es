@@ -12,7 +12,7 @@ require 'wsdl/soap/classDefCreatorSupport'
 
 module WSDL
 module SOAP
-require 'byebug'
+require 'byebug' if RUBY_VERSION.to_f >= 2.0
 
 
 # requires @defined_const = {}, @dump_with_inner, @modulepath

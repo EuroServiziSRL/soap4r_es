@@ -9,7 +9,7 @@
 
 require 'wsdl/xmlSchema/complexType'
 require 'soap/mapping'
-require 'byebug'
+require 'byebug' if RUBY_VERSION.to_f >= 2.0
 
 module WSDL
 module XMLSchema
