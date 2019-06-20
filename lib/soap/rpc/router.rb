@@ -39,7 +39,7 @@ class Router
     @mapping_registry = nil
     @headerhandler = Header::HandlerSet.new
     @literal_mapping_registry = ::SOAP::Mapping::LiteralRegistry.new
-    @generate_explicit_type = true
+    @generate_explicit_type = false
     @use_default_namespace = false
     @external_ces = nil
     @operation_by_soapaction = {}
