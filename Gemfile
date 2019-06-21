@@ -23,7 +23,7 @@ else
 end
 
 gem 'debugger' if RUBY_VERSION.to_f < 2.0
-gem 'byebug', '~>5.0.0' if RUBY_VERSION.to_f >= 2.0
+gem 'byebug', '~> 5.0.0' if RUBY_VERSION.to_f >= 2.0
 
 ## # Testing Support ###
 group :test do
