@@ -51,7 +51,7 @@ class Handler
 
   def initialize(charset)
     @charset = charset
-    @generate_explicit_type = true
+    @generate_explicit_type = false
     @decode_typemap = nil
   end
 

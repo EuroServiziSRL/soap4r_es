@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    soap4r_es (0.0.6)
+    soap4r_es (0.0.8)
       httpclient (~> 2.6)
       logger-application (~> 0.0.2)
 
@@ -69,4 +69,4 @@ DEPENDENCIES
   test-unit
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

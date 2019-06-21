@@ -27,7 +27,7 @@ class HTTPServer < Logger::Application
 
   attr_proxy :mapping_registry, true
   attr_proxy :literal_mapping_registry, true
-  attr_proxy :generate_explicit_type, true
+  attr_proxy :generate_explicit_type, false
   attr_proxy :use_default_namespace, true
 
   def initialize(config)

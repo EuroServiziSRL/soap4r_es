@@ -13,7 +13,6 @@ require 'soap/mapping/typeMap'
 require 'xsd/codegen/gensupport'
 require 'xsd/namedelements'
 
-
 module SOAP
 module Mapping
 
@@ -141,7 +140,7 @@ private
       ele.type = definition.type
       if definition.basetype or Mapping.root_type_hint
         Mapping.reset_root_type_hint
-        ele.force_typed = true
+        ele.force_typed = false
       end
     end
     if qname.nil? and definition.elename
