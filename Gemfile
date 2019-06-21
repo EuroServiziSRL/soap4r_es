@@ -8,7 +8,7 @@ if RUBY_VERSION.to_f <= 1.8
   gem 'nokogiri', '~> 1.5.11'       # nokogiriparser ; Uses libxml2, libxslt, and zlib
 else
   gem 'htmlentities', '~> 4.3.3'    # Require this if OxParser's built-in "Special Character" conversion isn't sufficient for your needs.
-  gem 'nokogiri',     '~> 1.6.6'    # nokogiriparser ; Uses libxml2, libxslt, and zlib
+  gem 'nokogiri',     '~> 1.9.1'    # nokogiriparser ; Uses libxml2, libxslt, and zlib
   gem 'oga'                         # ogaparser      ; Pure-Ruby Alternative ; Ruby 1.9 and above only.
   gem 'logger-application', :require=>'logger-application'
 end
@@ -23,7 +23,7 @@ else
 end
 
 gem 'debugger' if RUBY_VERSION.to_f < 2.0
-gem 'byebug' if RUBY_VERSION.to_f >= 2.0
+gem 'byebug', '~>5.0.0' if RUBY_VERSION.to_f >= 2.0
 
 ## # Testing Support ###
 group :test do
@@ -43,6 +43,5 @@ group :test do
   # gem 'ruby-termios'               # Unroller requires this . . .
   # gem 'unroller', :git=>'https://github.com/jayjlawrence/unroller.git', :branch=>'master'
   
-  gem 'byebug' if RUBY_VERSION.to_f >= 2.0
   gem 'soap4r_es', :path=>'.'  # Make our development copy (this directory) available as a Gem via Bundler. Useful for running tests.
 end

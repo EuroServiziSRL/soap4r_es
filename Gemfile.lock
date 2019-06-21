@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    soap4r_es (0.0.4)
+    soap4r_es (0.0.6)
       httpclient (~> 2.6)
       logger-application (~> 0.0.2)
 
@@ -17,25 +17,21 @@ GEM
   specs:
     ansi (1.5.0)
     ast (2.2.0)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     codeclimate-test-reporter (0.5.0)
       simplecov (>= 0.7.1, < 1.0.0)
     columnize (0.9.0)
     curb (0.9.3)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.8)
     docile (1.1.5)
     htmlentities (4.3.4)
     httpclient (2.8.0)
     json (1.8.3)
     libxml-ruby (2.8.0)
     logger-application (0.0.2)
-    mini_portile2 (2.0.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    mini_portile2 (2.4.0)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
     oga (2.2)
       ast
       ruby-ll (~> 2.1)
@@ -57,17 +53,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug (~> 5.0.0)
   codeclimate-test-reporter
   curb
-  debugger
   htmlentities (~> 4.3.3)
   httpclient
   libxml-ruby
   logger-application
-  nokogiri (~> 1.6.6)
+  nokogiri (~> 1.9.1)
   oga
   ox
   rake
   rubyjedi-testunitxml!
   soap4r_es!
   test-unit
+
+BUNDLED WITH
+   1.10.6
