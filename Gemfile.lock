@@ -30,7 +30,7 @@ GEM
     libxml-ruby (2.8.0)
     logger-application (0.0.2)
     mini_portile2 (2.4.0)
-    nokogiri (1.9.1)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     oga (2.2)
       ast
@@ -60,7 +60,7 @@ DEPENDENCIES
   httpclient
   libxml-ruby
   logger-application
-  nokogiri (~> 1.9.1)
+  nokogiri (~> 1.10.5)
   oga
   ox
   rake
