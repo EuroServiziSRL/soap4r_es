@@ -37,7 +37,7 @@ GEM
       ruby-ll (~> 2.1)
     ox (2.4.1)
     power_assert (0.3.0)
-    rake (11.1.2)
+    rake (13.0.1)
     ruby-ll (2.1.2)
       ansi
       ast
