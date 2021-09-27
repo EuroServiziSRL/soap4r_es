@@ -29,14 +29,16 @@ GEM
     json (1.8.3)
     libxml-ruby (2.8.0)
     logger-application (0.0.2)
-    mini_portile2 (2.4.0)
-    nokogiri (1.9.1)
-      mini_portile2 (~> 2.4.0)
+    mini_portile2 (2.6.1)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     oga (2.2)
       ast
       ruby-ll (~> 2.1)
     ox (2.4.1)
     power_assert (0.3.0)
+    racc (1.5.2)
     rake (11.1.2)
     ruby-ll (2.1.2)
       ansi
@@ -60,7 +62,7 @@ DEPENDENCIES
   httpclient
   libxml-ruby
   logger-application
-  nokogiri (~> 1.9.1)
+  nokogiri (~> 1.12.5)
   oga
   ox
   rake
