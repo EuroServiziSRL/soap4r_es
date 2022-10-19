@@ -5,10 +5,10 @@ gem 'httpclient'   # 2.1.5.2
 
 if RUBY_VERSION.to_f <= 1.8
   gem 'htmlentities', '4.3.1'       # Require this if OxParser's built-in "Special Character" conversion isn't sufficient for your needs.
-  gem 'nokogiri', '~> 1.5.11'       # nokogiriparser ; Uses libxml2, libxslt, and zlib
+  gem 'nokogiri', '~> 1.13.9'      # nokogiriparser ; Uses libxml2, libxslt, and zlib
 else
   gem 'htmlentities', '~> 4.3.3'    # Require this if OxParser's built-in "Special Character" conversion isn't sufficient for your needs.
-  gem 'nokogiri',     '~> 1.9.1'    # nokogiriparser ; Uses libxml2, libxslt, and zlib
+  gem 'nokogiri',     '~> 1.13.9'    # nokogiriparser ; Uses libxml2, libxslt, and zlib
   gem 'oga'                         # ogaparser      ; Pure-Ruby Alternative ; Ruby 1.9 and above only.
   gem 'logger-application', :require=>'logger-application'
 end
